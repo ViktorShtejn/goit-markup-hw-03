@@ -49,9 +49,18 @@ ul {
   color: var(--revers-color);
 }
 
-.unvisible-title {
-  visibility: hidden;
-  height: 0;
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .container {
@@ -75,12 +84,14 @@ img {
 
 /* ========= START HEAD ========= */
 .header {
-  padding-top: 24px;
-  padding-bottom: 24px;
   border-bottom: 1px solid #ececec;
 }
 
 .nav-list-link {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: block;
+
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -118,6 +129,7 @@ img {
 
 .main-nav {
   display: flex;
+  align-items: center;
 }
 
 .nav-list {
@@ -217,6 +229,10 @@ img {
 /* ========= END FEATURES ========= */
 
 /* ========= START WORK DESCRIPTION ========= */
+.work-description {
+  padding-bottom: 94px;
+}
+
 .work-description-title {
   margin-bottom: 50px;
 
@@ -230,9 +246,8 @@ img {
 
 .work-description-list {
   display: flex;
-  justify-content: space-between;
-  flex-basis: calc((100%-90px) / 3);
-  margin-bottom: 94px;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 /* ========= END WORK DESCRIPTION ========= */
 
@@ -254,8 +269,8 @@ img {
 
 .team-list {
   display: flex;
-  justify-content: space-between;
-  flex-basis: calc((100%-120px) / 4);
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 .team-list-item {
@@ -263,8 +278,11 @@ img {
   border-radius: 0 0 4px 4px;
 }
 
+.team-member-box {
+  padding: 30px 60px;
+}
+
 .team-member-name {
-  margin-top: 30px;
   margin-bottom: 10px;
 
   font-weight: 500;
@@ -276,8 +294,6 @@ img {
 }
 
 .team-member-profession {
-  margin-bottom: 30px;
-
   font-size: 16px;
   line-height: 1.19;
   text-align: center;
@@ -296,6 +312,10 @@ img {
   display: block;
   margin-bottom: 20px;
   color: #ffffff;
+}
+
+.address-list-item:not(:last-child) {
+  margin-bottom: 9px;
 }
 
 .address-list-link {
@@ -343,10 +363,6 @@ img {
   background-color: #f5f4fa;
 }
 
-.first-btn {
-  padding: 6px 25px;
-}
-
 .filter-btn:hover,
 .filter-btn:focus {
   color: #ffffff;
@@ -370,9 +386,7 @@ img {
   background: #ffffff;
   border: 1px solid #eeeeee;
   border-top: 0;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 24px;
+  padding: 20px 24px;
 }
 
 .work-item-title {
